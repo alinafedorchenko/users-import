@@ -1,0 +1,45 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Import info</h1>
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Title:</strong>
+      <%= @import.title %>
+    </li>
+    <li class="list-group-item">
+      <strong>File:</strong>
+      <%= @import.file %>
+    </li>
+    <li class="list-group-item">
+      <strong>Created at:</strong>
+      <%= @import.created_at %>
+    </li>
+    <li class="list-group-item">
+      <strong>Status:</strong>
+      <%= @import.status %>
+    </li>
+    <li class="list-group-item"></li>
+    <li class="list-group-item">
+      <strong>Created count:</strong>
+      <%= @import.created_count %>
+    </li>
+    <li class="list-group-item">
+      <strong>Failed count:</strong>
+      <%= @import.failed_count %>
+    </li>
+    <li class="list-group-item">
+      <strong>Started at:</strong>
+      <%= @import.started_at %>
+    </li>
+    <li class="list-group-item">
+      <strong>Completed at:</strong>
+      <%= @import.completed_at %>
+    </li>
+  </ul>
+
+  <%= link_to "Start import", import_processings_path(import_id: @import.id),
+              method: :post, class: 'btn btn-success' %>
+  <%= link_to 'Back', imports_path %>
+</div>

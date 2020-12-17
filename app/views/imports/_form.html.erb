@@ -1,0 +1,32 @@
+<%= form_for(import) do |f| %>
+  <% if import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(import.errors.count, "error") %> prohibited this import from being saved:</h2>
+
+      <ul>
+        <% import.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= f.label :title, class: "col-sm-1 col-form-label" %>
+    <div class="col-sm-8">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :file, class: "col-sm-1 col-form-label" %>
+    <div class="col-sm-8">
+      <%= f.file_field :file, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= hidden_field_tag('importer_type', 'UserImport') %>
+  <div class="actions">
+    <%= f.submit :Submit, class: "btn btn-success" %>
+  </div>
+<% end %>
